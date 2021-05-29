@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-deployment
+  labels:
+    app: nodejs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs
+  template:
+    metadata:
+      labels:
+        app: nodejs
+    spec:
+      containers:
+      - name: nodejs
+        image: bilwamoye/myemployeeapi:latest
+        env:
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: mysql-configmap
+              key: host
+        - name: DB_USER 
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret 
+              key: root-username
+        - name: DB_PASSWORD 
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret 
+              key: root-password   
+        - name: MYSQL_DB
+          valueFrom:
+            configMapKeyRef:
+              name: mysql-configmap
+              key: database
+        
+        # resources:
+        #   limits:
+        #     memory: "128Mi"
+        #     cpu: "500m"
+        ports:
+        - containerPort: 3000

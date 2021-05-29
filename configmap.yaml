@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-configmap
+data:
+  database: EmployeeDB
+  host: mysql
+  
+
