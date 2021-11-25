@@ -1,5 +1,5 @@
 if [[ -z $1 || -z $2 || -z $3 ]]; then
-      echo "Please provide a message and/or branch"
+      echo " Please provide a message and/or branch"
       exit 1
     fi
     repo=$1
