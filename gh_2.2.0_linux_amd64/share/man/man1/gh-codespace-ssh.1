@@ -1,0 +1,49 @@
+.nh
+.TH "gh" "1" "Oct 2021" "" ""
+
+.SH NAME
+.PP
+gh-codespace-ssh - SSH into a codespace
+
+
+.SH SYNOPSIS
+.PP
+\fBgh codespace ssh [\&...] [-- \&...] []\fP
+
+
+.SH DESCRIPTION
+.PP
+SSH into a codespace
+
+
+.SH OPTIONS
+.PP
+\fB-c\fP, \fB--codespace\fP=""
+	Name of the codespace
+
+.PP
+\fB-d\fP, \fB--debug\fP[=false]
+	Log debug data to a file
+
+.PP
+\fB--debug-file\fP=""
+	Path of the file log to
+
+.PP
+\fB--profile\fP=""
+	Name of the SSH profile to use
+
+.PP
+\fB--server-port\fP=0
+	SSH server port number (0 => pick unused)
+
+
+.SH OPTIONS INHERITED FROM PARENT COMMANDS
+.PP
+\fB--help\fP[=false]
+	Show help for command
+
+
+.SH SEE ALSO
+.PP
+\fBgh-codespace(1)\fP

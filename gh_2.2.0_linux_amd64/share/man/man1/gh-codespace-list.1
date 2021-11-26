@@ -1,0 +1,45 @@
+.nh
+.TH "gh" "1" "Oct 2021" "" ""
+
+.SH NAME
+.PP
+gh-codespace-list - List your codespaces
+
+
+.SH SYNOPSIS
+.PP
+\fBgh codespace list [flags]\fP
+
+
+.SH DESCRIPTION
+.PP
+List your codespaces
+
+
+.SH OPTIONS
+.PP
+\fB-q\fP, \fB--jq\fP=""
+	Filter JSON output using a jq \fB\fCexpression\fR
+
+.PP
+\fB--json\fP=[]
+	Output JSON with the specified \fB\fCfields\fR
+
+.PP
+\fB-L\fP, \fB--limit\fP=30
+	Maximum number of codespaces to list
+
+.PP
+\fB-t\fP, \fB--template\fP=""
+	Format JSON output using a Go template
+
+
+.SH OPTIONS INHERITED FROM PARENT COMMANDS
+.PP
+\fB--help\fP[=false]
+	Show help for command
+
+
+.SH SEE ALSO
+.PP
+\fBgh-codespace(1)\fP
