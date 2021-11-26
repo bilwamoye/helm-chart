@@ -1,0 +1,69 @@
+.nh
+.TH "gh" "1" "Oct 2021" "" ""
+
+.SH NAME
+.PP
+gh-codespace-cp - Copy files between local and remote file systems
+
+
+.SH SYNOPSIS
+.PP
+\fBgh codespace cp [-e] [-r] srcs... dest [flags]\fP
+
+
+.SH DESCRIPTION
+.PP
+The cp command copies files between the local and remote file systems.
+
+.PP
+As with the UNIX cp command, the first argument specifies the source and the last
+specifies the destination; additional sources may be specified after the first,
+if the destination is a directory.
+
+.PP
+The -r (recursive) flag is required if any source is a directory.
+
+.PP
+A 'remote:' prefix on any file name argument indicates that it refers to
+the file system of the remote (Codespace) machine. It is resolved relative
+to the home directory of the remote user.
+
+.PP
+By default, remote file names are interpreted literally. With the -e flag,
+each such argument is treated in the manner of scp, as a Bash expression to
+be evaluated on the remote machine, subject to expansion of tildes, braces,
+globs, environment variables, and backticks, as in these examples:
+
+.PP
+$ gh codespace cp -e README.md 'remote:/workspace/$RepositoryName/'
+ $ gh codespace cp -e 'remote:~/*.go' ./gofiles/
+ $ gh codespace cp -e 'remote:/workspace/myproj/go.{mod,sum}' ./gofiles/
+
+.PP
+For security, do not use the -e flag with arguments provided by untrusted
+users; see https://lwn.net/Articles/835962/ for discussion.
+
+
+.SH OPTIONS
+.PP
+\fB-c\fP, \fB--codespace\fP=""
+	Name of the codespace
+
+.PP
+\fB-e\fP, \fB--expand\fP[=false]
+	Expand remote file names on remote shell
+
+.PP
+\fB-r\fP, \fB--recursive\fP[=false]
+	Recursively copy directories
+
+
+.SH OPTIONS INHERITED FROM PARENT COMMANDS
+.PP
+\fB--help\fP[=false]
+	Show help for command
+
+
+.SH SEE ALSO
+.PP
+\fBgh-codespace(1)\fP
